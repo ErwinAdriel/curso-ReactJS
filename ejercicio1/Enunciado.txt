@@ -1,0 +1,1 @@
+En este segundo ejercicio práctico te desafiamos a demostrar tu creatividad y habilidades técnicas para estructurar y diseñar una interfaz dinámica y funcional utilizando React. Prepárate para este reto, que evaluará tu capacidad para trabajar con componentes, props y estilos.
