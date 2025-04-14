@@ -1,12 +1,13 @@
 import React from "react";
 import Miembro from "./Miembro";
+import img from "../img/img.png";
 
 export default function EquipoTalentoLab(){
     const equipo = [
-        {nombre: "Silvia", rol: "Product Owner"},
-        {nombre: "Luis", rol: "Diseñador UX/UI"},
-        {nombre: "Matias", rol: "Desarrollador"},
-        {nombre: "Sabrina", rol: "Desarrolladora"}
+        {imagen: img, nombre: "Silvia", rol: "Product Owner"},
+        {imagen: img, nombre: "Luis", rol: "Diseñador UX/UI"},
+        {imagen: img, nombre: "Matias", rol: "Desarrollador"},
+        {imagen: img, nombre: "Sabrina", rol: "Desarrolladora"}
     ];
     
     /*
@@ -14,11 +15,11 @@ export default function EquipoTalentoLab(){
     const rol = "Product Owner";
     */
     return(
-        <ul>
+        <ul style={{display: "grid", gap:"40px", padding: "40px", backgroundColor: "blanchedalmond", color: "black"}}>
             {
                 equipo.map((eq, index) => (
-                    <li key={index}>
-                        <Miembro nombre={eq.nombre} rol={eq.rol}/>
+                    <li style={{listStyle: "none"}} key={index}>
+                        <Miembro imagen={eq.imagen} nombre={eq.nombre} rol={eq.rol}/>
                     </li>
                 ))
             }
