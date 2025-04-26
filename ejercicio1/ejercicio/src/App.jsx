@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import EquipoTalentoLab from './componentes/EquipoTalentoLab';
+import TarjetaProyecto from './componentes/TarjetaProyecto';
+import './Estilos.css'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,8 +10,12 @@ function App() {
   return (
     <>
       <h1>TalentoLab</h1>
-      <div>
+      <div className='containerEquipo'>
         <EquipoTalentoLab />
+      </div>
+      <div className='containerTarjetas'>
+        <TarjetaProyecto titulo={"Matematica"} descripcion={"Esto es una descripcion de Matematica"} botonTexto={"Explorar"}/>
+        <TarjetaProyecto titulo={"Literatura"} descripcion={"Esto es una descripcion de Literatura"} botonTexto={"Explorar"}/>
       </div>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>

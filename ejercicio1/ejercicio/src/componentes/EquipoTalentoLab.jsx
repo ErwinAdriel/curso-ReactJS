@@ -15,14 +15,14 @@ export default function EquipoTalentoLab(){
     const rol = "Product Owner";
     */
     return(
-        <ul style={{display: "grid", gap:"40px", padding: "40px", backgroundColor: "blanchedalmond", color: "black"}}>
-            {
-                equipo.map((eq, index) => (
-                    <li style={{listStyle: "none"}} key={index}>
-                        <Miembro imagen={eq.imagen} nombre={eq.nombre} rol={eq.rol}/>
-                    </li>
-                ))
-            }
-        </ul>
+        <ul className="ul2">
+        {
+            equipo.map((eq, index) => (
+                <li style={{listStyle: "none"}} key={index}>
+                    <Miembro imagen={eq.imagen} nombre={eq.nombre} rol={eq.rol}/>
+                </li>
+            ))
+        }
+        </ul>        
     )
 }

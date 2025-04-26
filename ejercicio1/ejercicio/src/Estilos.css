@@ -1,0 +1,30 @@
+.tarjetaProyecto{
+    border: 1px solid black;
+    padding: 1rem; 
+    margin: 1rem;
+    color: #888;
+}
+
+.containerTarjetas{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.ul{
+    justify-content: center; 
+    width: 200px;
+    padding: 1rem;
+    background-color:blanchedalmond;
+    color: black;
+}
+
+.ul2{
+    display: flex;
+    gap: 1rem;
+}
+
+.containerEquipo{
+    justify-content: center;
+    align-items: center;
+}
