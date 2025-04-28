@@ -4,6 +4,7 @@ import EquipoTalentoLab from './componentes/EquipoTalentoLab';
 import TarjetaProyecto from './componentes/TarjetaProyecto';
 import './Estilos.css'
 import Tema from './componentes/Tema';
+import GaleriaIntereses from './componentes/GaleriaIntereses';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,7 +20,7 @@ function App() {
         <TarjetaProyecto titulo={"Literatura"} descripcion={"Esto es una descripcion de Literatura"} botonTexto={"Explorar"}/>
       </div>
       <div className='containerTemas'>
-        <Tema titulo={"React"} color={"white"}/>
+        <GaleriaIntereses />
       </div>
     </>
   )
