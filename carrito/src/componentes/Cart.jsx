@@ -4,7 +4,7 @@ export default function Cart({cartItems, vaciarItems}){
 
     return(
         <div>
-            <h2>Carrito de compras</h2>
+            <h2 className="text-3xl underline">Carrito de compras</h2>
             {cartItems.length === 0 ? (<p>El carrito esta vacio</p>) : 
             (
                 <>
