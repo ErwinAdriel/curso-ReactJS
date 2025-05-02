@@ -1,19 +1,23 @@
 import React from "react";
 
-export default function Cart({cartItems}){
+export default function Cart({cartItems, vaciarItems}){
+
     return(
         <div>
             <h2>Carrito de compras</h2>
-            {cartItems.lenght === 0 ? (<p>El carrito esta vacio</p>) : 
+            {cartItems.length === 0 ? (<p>El carrito esta vacio</p>) : 
             (
+                <>
                 <ul>
-                    //Recorre la lista de productos agregados al carrito 
-                    {cartItems.map((index, item) => (
+                    
+                    {cartItems.map((item, index) => (
                         <li key={index}>
                             {item.name} - {item.price}
                         </li>
                     ))}
                 </ul>
+                <button onClick={() => vaciarItems(cartItems)}>Vaciar</button>
+                </>
             )}
         </div>
     )

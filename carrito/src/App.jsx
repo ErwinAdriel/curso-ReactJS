@@ -1,17 +1,24 @@
 import { useState } from 'react'
 import './App.css'
-import { productList } from './utils/data'
-import ProductList from './componentes/ProductList'
+import Home from './layout/Home'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [cart, setCart] = useState([]);
+
+  function handleAddToCart(product){
+    setCart([...cart, product]);
+    console.log(cart);
+  }
+
+  function vaciarCart(){
+    setCart([])
+    console.log("Carrito vacio");
+  }
 
   return (
     <>
       <h1>Productos</h1>
-      <div className="card">
-        <ProductList products={productList} />
-      </div>
+      <Home cart={cart} handleAddToCart={handleAddToCart} vaciarCart={vaciarCart}/>
     </>
   )
 }
