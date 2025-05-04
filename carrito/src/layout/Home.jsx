@@ -7,7 +7,7 @@ export default function Home({cart, handleAddToCart, vaciarCart, decrementoCant,
     
     return(
         <>
-            <div className="card">
+            <div>
                 <ProductList products={productList} addToCart={handleAddToCart}/>
             </div>
             <div>

@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import Home from './layout/Home'
+import Footer from './layout/Footer';
+import Header from './layout/Header';
+import Nav from './layout/Nav';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -77,8 +80,13 @@ function App() {
 
   return (
     <>
-      <h1>Productos</h1>
+      <Header />
+      <div class="items-center center">
+      <h1 class="border-1">Productos</h1>
       <Home cart={cart} handleAddToCart={handleAddToCart} decrementoCant={decrementoCant} incrementoCant={incrementoCant} vaciarCart={vaciarCart} />
+      </div>
+      
+      <Footer /> 
     </>
   )
 }
