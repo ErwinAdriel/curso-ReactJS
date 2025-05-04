@@ -3,7 +3,7 @@ import { productList } from "../utils/data";
 import ProductList from "../componentes/ProductList";
 import Cart from "../componentes/Cart";
 
-export default function Home({cart, handleAddToCart, vaciarCart}){
+export default function Home({cart, handleAddToCart, vaciarCart, decrementoCantidad, incrementoCantidad}){
     
     return(
         <>
@@ -11,7 +11,7 @@ export default function Home({cart, handleAddToCart, vaciarCart}){
                 <ProductList products={productList} addToCart={handleAddToCart}/>
             </div>
             <div>
-                <Cart cartItems={cart} vaciarItems={vaciarCart}/>
+                <Cart cartItems={cart} vaciarItems={vaciarCart} decrementoCantidad={decrementoCantidad} incrementoCantidad={incrementoCantidad}/>
             </div>
         </>
     )
