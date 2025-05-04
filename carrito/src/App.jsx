@@ -11,19 +11,27 @@ function App() {
 
     if(productExist){
       //Si el producto esta en el carrito
-      setCart(cart.map((item) => item.id === product.id ? {...item, cantidad: item.cantidad+1} : item))
+      setCart(cart.map((item) => {
+        if(item.id === product.id){
+          if(item.cantidad < product.stock){
+            return {...item, cantidad: item.cantidad+1}  
+          }
+            return item
+        }else{
+          return item
+        }
+      }))
     }else{
       setCart([...cart, {...product, cantidad:1}]);
     }
-    
     //setCantidad(cantidad + 1);
     console.log(cart);
   }
 
-  function decremento(product){
+  function decrementoCant(product){
     setCart(prevCart => {
       return(
-        prevCart.map(item => {
+        prevCart.map((item) => {
           if(item.id === product.id){
             if(item.cantidad > 1){
               return(
@@ -35,7 +43,29 @@ function App() {
           }else{
             return item
           }
-        }).filter(item => item != null);
+        }).filter(item => item != null)
+      )
+    })
+  }
+
+  function incrementoCant(product){
+    setCart(afterCart => {
+      return(
+        afterCart.map((item) => {
+          if(item.id === product.id){
+            if(item.cantidad < product.stock){
+              return(
+                {...item, cantidad: item.cantidad+1}
+              )
+            }else{
+              return (
+                item
+              )
+            }
+          }else{
+            return item
+          }
+        }).filter(item => item === item)
       )
     })
   }
@@ -48,7 +78,7 @@ function App() {
   return (
     <>
       <h1>Productos</h1>
-      <Home cart={cart} handleAddToCart={handleAddToCart} vaciarCart={vaciarCart}/>
+      <Home cart={cart} handleAddToCart={handleAddToCart} decrementoCant={decrementoCant} incrementoCant={incrementoCant} vaciarCart={vaciarCart} />
     </>
   )
 }
