@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function Cart({cartItems, vaciarItems, decrementoCant, incrementoCant}){
 
     return(
-        <div className="items-center">
+        <div>
             <h2 className="text-3xl underline">Carrito de compras</h2>
             {cartItems.length === 0 ? (<p>El carrito esta vacio</p>) : 
             (
