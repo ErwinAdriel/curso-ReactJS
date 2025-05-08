@@ -4,7 +4,6 @@ import Home from './layout/Home'
 import Footer from './layout/Footer';
 import Header from './layout/Header';
 import Nav from './layout/Nav';
-import { GrFormNextLink } from "react-icons/gr";
 
 function App() {
   const [cart, setCart] = useState([]);
