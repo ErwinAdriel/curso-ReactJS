@@ -1,17 +1,11 @@
 import React from "react";
 import { IoCartOutline } from "react-icons/io5";
-import "../utils/data.js";
 
 export default function Producto({product, addToCart}){
+
     return(
-        /*<div style={{margin: 10, border: "1px solid white", padding: 10}}>
-            <h4>{product.name}</h4>
-            <h5>${product.price}</h5>
-            <h5>Stock: {product.stock}</h5>
-            <button onClick={() => addToCart(product)}>Comprar</button>
-        </div>*/
         <div class="w-full h-full  relative group overflow-hidden shadow-xl">
-                    <div class="w-full h-[322px] mt-4 bg-cover bg-center bg-no-repeat" style={{backgroundColor: 'black'}}>
+                    <div class="w-full h-[260px] mt-4 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${product.img})` }}>
                         
                     </div>
                     <div class="flex justify-center h-[102px] items-center relative">

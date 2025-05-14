@@ -1,5 +1,4 @@
 import React from "react";
-import { productList } from "../utils/data";
 import ProductList from "../componentes/ProductList";
 import Cart from "../componentes/Cart";
 
@@ -8,7 +7,7 @@ export default function Home({cart, handleAddToCart, vaciarCart, decrementoCant,
     return(
         <>
             <div class="mx-auto container">
-                <ProductList products={productList} addToCart={handleAddToCart}/>
+                <ProductList addToCart={handleAddToCart}/>
             </div>
             <div>
                 <Cart cartItems={cart} vaciarItems={vaciarCart} decrementoCant={decrementoCant} incrementoCant={incrementoCant}/>
