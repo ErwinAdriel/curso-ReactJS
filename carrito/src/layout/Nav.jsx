@@ -3,8 +3,8 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { IoCartOutline, IoClose } from "react-icons/io5";
 import { CiMenuBurger } from "react-icons/ci";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 //import { useCart } from "../hooks/useCart";
-//import { Link } from "react-router-dom";
 
 export default function Nav(){
 
@@ -13,16 +13,12 @@ export default function Nav(){
     const [openCategoria, setOpenCategoria] = useState(false);
 
     const [openMenu, setOpenMenu] = useState(false);
-    
-    const Menus = ["Inicio", "Nosotros", "Contacto"];
 
-    const Categorias = [
-                        {name: "Laptops", link: "/laptops"},
-                        {name: "Celulares", link: "/celulares"},
-                        {name: "TV", link: "/tvs"},
-                        {name: "Audio", link: "/audio"},
-                        {name: "Gaming", link: "/gaming"}
-                    ];
+    const Menu = [
+                    {name: "Inicio", link: "/"},
+                    {name: "Nosotros", link: "/nosotros"},
+                    {name: "Contacto", link: "/contacto"}
+                ];
     return (
         <div>
             <div class="w-full h-[86px] bg-white lg:block md:px-20 px-5">
@@ -59,8 +55,8 @@ export default function Nav(){
                             <div class="nav">
                                 <ul class="flex">
                                     {
-                                        Menus.map((menu)=>(
-                                            <li key={menu} class="hover:bg-white hover:text-black"><div class=" px-4 py-[18px] cursor-pointer">{menu}</div></li>        
+                                        Menu.map((menu)=>(
+                                            <li key={menu} class="hover:bg-white hover:text-black"><div class="px-4 py-[18px] cursor-pointer"><Link to={menu.link}>{menu.name}</Link></div></li>        
                                         ))
                                     }
                                 </ul>
@@ -69,7 +65,6 @@ export default function Nav(){
                     </div>
                 </div>
             </div>
-        </div>
-                
+        </div>           
     );
 }

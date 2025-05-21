@@ -6,7 +6,7 @@ export default function Footer(){
             <div class=" block mx-auto pt-[56px] px-20">
                 <div class="w-full flex flex-col items-center mb-[50px]">
                     <div class="mb-[40px]">
-                        <span class="text-3xl font-bold">TinoShop</span>
+                        <span class="text-3xl font-bold">AvComputing</span>
                     </div>
                     <div class="w-full h-[1px] bg-[#E9E9E9]"></div>
                 </div>

@@ -3,7 +3,8 @@ import './App.css'
 import Home from './layout/Home'
 import Footer from './layout/Footer';
 import Header from './layout/Header';
-import Nav from './layout/Nav';
+import Error from './componentes/Error404';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -79,11 +80,12 @@ function App() {
   }
 
   return (
-    <>
+    <>  
       <Header />
-      <div class="lg:px-20 my-10">
-        <Home cart={cart} handleAddToCart={handleAddToCart} decrementoCant={decrementoCant} incrementoCant={incrementoCant} vaciarCart={vaciarCart} />
-      </div>
+      <Routes>
+        <Route path='/' element={<Home cart={cart} handleAddToCart={handleAddToCart} decrementoCant={decrementoCant} incrementoCant={incrementoCant} vaciarCart={vaciarCart} />}/>
+        <Route path='*' element={<Error />}/>
+      </Routes>
       <Footer /> 
     </>
   )
