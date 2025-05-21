@@ -4,9 +4,8 @@ import { IoCartOutline } from "react-icons/io5";
 export default function Producto({product, addToCart}){
 
     return(
-        <div class="w-full h-full  relative group overflow-hidden shadow-xl">
-                    <div class="w-full h-[260px] mt-4 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${product.img})` }}>
-                        
+        <div class="w-full h-full  relative group overflow-hidden shadow-xl/10">
+                    <div class="w-full h-[260px] mt-4 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${product.img})` }}>                    
                     </div>
                     <div class="flex justify-center h-[102px] items-center relative">
                         <div class="absolute w-full flex justify-center items-center top-40 group-hover:top-[40px] transition-all duration-500 ease-in-out">

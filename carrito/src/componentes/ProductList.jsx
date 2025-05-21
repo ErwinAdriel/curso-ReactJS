@@ -36,7 +36,7 @@ export default function ProductList({addToCart}){
         {
             carga ? <img class="mx-auto" src={loading} alt="loading" /> :
         
-            <div class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10">
+            <div class="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5">
                 {
                     products.map((product) => (
                         <Producto key={product.id} product={product} addToCart={addToCart}/>

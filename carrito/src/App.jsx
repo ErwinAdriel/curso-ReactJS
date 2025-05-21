@@ -81,7 +81,7 @@ function App() {
   return (
     <>
       <Header />
-      <div class="container md:px-20 my-4">
+      <div class="lg:px-20 my-10">
         <Home cart={cart} handleAddToCart={handleAddToCart} decrementoCant={decrementoCant} incrementoCant={incrementoCant} vaciarCart={vaciarCart} />
       </div>
       <Footer /> 

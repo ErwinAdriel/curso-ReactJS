@@ -14,7 +14,7 @@ export default function Nav(){
 
     const [openMenu, setOpenMenu] = useState(false);
     
-    const Menus = ["Notebook", "Monitores", "Pc's de Escritorio"];
+    const Menus = ["Inicio", "Nosotros", "Contacto"];
 
     const Categorias = [
                         {name: "Laptops", link: "/laptops"},
@@ -28,9 +28,8 @@ export default function Nav(){
             <div class="w-full h-[86px] bg-white lg:block md:px-20 px-5">
                 <div class="container-x mx-auto h-full">
                     <div class="relative h-full">
-                        <div class="flex justify-between items-center h-full">
-                            
-                            <div class="text-3xl font-bold"><span>TinoShop</span></div>
+                        <div class="flex justify-between items-center h-full"> 
+                            <div class="text-3xl font-bold"><span>AvComputing</span></div>
                             <div class="md:flex w-[517px] h-[44px] border border-slate-400 hidden">
                                 <div class="w-full h-full flex items-center bg-white">
                                     <form action="#" class="h-full w-full">
@@ -48,6 +47,23 @@ export default function Nav(){
                                     <span class="w-[18px] h-[18px] rounded-full absolute -top-2.5 -right-2.5 flex justify-center items-center text-[9px] bg-blue-700 text-white">0</span>
                                 </div>
                                 <div class="sm:flex text-2xl"><a href="#"><span><FaRegUser /></span></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-slate-900 w-full h-[60px] relative z-30 md:block text-white px-20">
+                <div class="w-full h-full relative">
+                    <div class="w-full h-full flex justify-between items-center">
+                        <div class="flex xl:space-x-7 space-x-3 items-center">
+                            <div class="nav">
+                                <ul class="flex">
+                                    {
+                                        Menus.map((menu)=>(
+                                            <li key={menu} class="hover:bg-white hover:text-black"><div class=" px-4 py-[18px] cursor-pointer">{menu}</div></li>        
+                                        ))
+                                    }
+                                </ul>
                             </div>
                         </div>
                     </div>
