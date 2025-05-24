@@ -14,6 +14,7 @@ export default function Nav(){
 
     const Menu = [
                     {name: "Inicio", link: "/"},
+                    {name: "Galeria", link: "/productos"},
                     {name: "Nosotros", link: "/nosotros"},
                     {name: "Contacto", link: "/contacto"}
                 ];
