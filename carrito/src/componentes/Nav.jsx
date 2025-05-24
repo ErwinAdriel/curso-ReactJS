@@ -54,7 +54,7 @@ export default function Nav(){
                                 <ul class="flex">
                                     {
                                         Menu.map((menu)=>(
-                                            <li key={menu} class="hover:bg-white hover:text-black"><div class="px-4 py-[18px] cursor-pointer"><Link to={menu.link}>{menu.name}</Link></div></li>        
+                                            <li key={menu} class="hover:bg-white hover:text-black"><Link to={menu.link}><div class="px-4 py-[18px] cursor-pointer">{menu.name}</div></Link></li>       
                                         ))
                                     }
                                 </ul>

@@ -10,7 +10,7 @@ export default function Error(){
         <p class="mt-6 text-lg font-medium text-pretty text-gray-500 sm:text-xl/4">Lo sentimos, no pudimos encontrar la página.</p>
         <div class="mt-10 flex items-center justify-center gap-x-6">
           <Link to='/' class="rounded-md bg-slate-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Volver</Link>
-          <a href="#" class="text-sm font-semibold text-gray-900">Contacto soporte <span aria-hidden="true">&rarr;</span></a>
+          <Link to='/contacto' class="text-sm font-semibold text-gray-900">Contacto soporte <span aria-hidden="true">&rarr;</span></Link>
         </div>
       </div>
     </main>

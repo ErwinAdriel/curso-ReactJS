@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Producto from "./Producto";
 import loading from "../img/loading.gif";
-import Error from "./Error404";
+import Error from "../layout/Error404";
 
 export default function ProductList({addToCart}){
 

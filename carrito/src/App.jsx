@@ -3,7 +3,9 @@ import './App.css'
 import Home from './layout/Home'
 import Footer from './componentes/Footer';
 import Header from './componentes/Header';
-import Error from './componentes/Error404';
+import Error from './layout/Error404';
+import Nosotros from './layout/Nosotros';
+import Contacto from './layout/Contacto';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -83,8 +85,10 @@ function App() {
     <>  
       <Header />
       <Routes>
-        <Route path='/' element={<Home cart={cart} handleAddToCart={handleAddToCart} decrementoCant={decrementoCant} incrementoCant={incrementoCant} vaciarCart={vaciarCart} />}/>
         <Route path='*' element={<Error />}/>
+        <Route path='/' element={<Home cart={cart} handleAddToCart={handleAddToCart} decrementoCant={decrementoCant} incrementoCant={incrementoCant} vaciarCart={vaciarCart} />}/>
+        <Route path='/nosotros' element={<Nosotros />}/>
+        <Route path='/contacto' element={<Contacto />}/>
       </Routes>
       <Footer /> 
     </>

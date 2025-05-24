@@ -56,7 +56,7 @@ export default function Footer(){
                         <FaInstagram />
                         <FaYoutube />
                     </div>
-                    <span class=" sm:text-base font-300">©2025 <a href="/" class="font-bold">TinoShop.</a> Todos los derechos reservados</span>
+                    <span class=" sm:text-base font-300">©2025 <a href="/" class="font-bold">AvComputing.</a> Todos los derechos reservados</span>
                 </div>
                 <div class="flex space-x-2 text-4xl">
                     <FaCcVisa />
