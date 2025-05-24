@@ -10,8 +10,6 @@ export default function Nav(){
 
     const [open, setOpen] = useState(false);
 
-    const [openCategoria, setOpenCategoria] = useState(false);
-
     const [openMenu, setOpenMenu] = useState(false);
 
     const Menu = [

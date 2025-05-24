@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import Home from './layout/Home'
-import Footer from './layout/Footer';
-import Header from './layout/Header';
+import Footer from './componentes/Footer';
+import Header from './componentes/Header';
 import Error from './componentes/Error404';
 import { Routes, Route } from 'react-router-dom';
 
