@@ -3,7 +3,7 @@ import ProductList from "../componentes/ProductList";
 import Cart from "../componentes/Cart";
 import loading from "../img/loading.gif";
 
-export default function Home({products, cargando, cart, handleAddToCart, vaciarCart, decrementoCant, incrementoCant}){
+export default function Home({products, cargando, handleAddToCart, vaciarCart, decrementoCant, incrementoCant}){
     
     return(
         <>

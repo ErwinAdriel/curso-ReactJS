@@ -106,10 +106,10 @@ function App() {
 
   return (
     <>  
-      <Header />
+      <Header cartItems={cart}/>
       <Routes>
         <Route path='*' element={<Error />} />
-        <Route path='/' element={<Home products={products} cargando={carga} cart={cart} handleAddToCart={handleAddToCart} decrementoCant={decrementoCant} incrementoCant={incrementoCant} vaciarCart={vaciarCart} />} />
+        <Route path='/' element={<Home  products={products} cargando={carga} cart={cart} handleAddToCart={handleAddToCart} decrementoCant={decrementoCant} incrementoCant={incrementoCant} vaciarCart={vaciarCart} />} />
         <Route path='/productos' element={<GaleriadeProductos products={products} cargando={carga} />} />
         <Route path='/nosotros' element={<Nosotros />} />
         <Route path='/contacto' element={<Contacto />} />

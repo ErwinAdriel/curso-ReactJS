@@ -4,11 +4,11 @@ import { IoCartOutline, IoClose } from "react-icons/io5";
 import { CiMenuBurger } from "react-icons/ci";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-//import { useCart } from "../hooks/useCart";
+import Cart from "./Cart";
 
-export default function Nav(){
+export default function Nav({cartItems}){
 
-    const [open, setOpen] = useState(false);
+    const [isCartOpen, setCartOpen] = useState(false);
 
     const [openMenu, setOpenMenu] = useState(false);
 
@@ -36,18 +36,25 @@ export default function Nav(){
                                 </div>
                             </div>
                             <div class="flex space-x-3 items-center">
-                                <div class="md:flex text-3xl hidden"><a href="#"><span><MdFavoriteBorder /></span></a></div>
-                                <div class="group relative text-3xl">
-                                    <a href="#"><span><IoCartOutline /></span></a>
-                                    <span class="w-[18px] h-[18px] rounded-full absolute -top-2.5 -right-2.5 flex justify-center items-center text-[9px] bg-blue-700 text-white">0</span>
+                                <div class="md:flex text-3xl hidden">
+                                    <span><MdFavoriteBorder /></span>
                                 </div>
-                                <div class="sm:flex text-2xl"><a href="#"><span><FaRegUser /></span></a></div>
+                                <div class="group relative text-3xl">
+                                    <button class="cursor-pointer" type="button" onClick={() => setCartOpen(!isCartOpen)}>
+                                        <span><IoCartOutline /></span>
+                                        <span class="w-[18px] h-[18px] rounded-full absolute -top-2.5 -right-2.5 flex justify-center items-center text-[9px] bg-blue-700 text-white">0</span>
+                                    </button>
+                                    <Cart cartItems={cartItems} isOpen={isCartOpen} onClose={()=>setCartOpen(false)}/>
+                                </div>
+                                <div class="sm:flex text-2xl">
+                                    <span><FaRegUser /></span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="bg-slate-900 w-full h-[60px] relative z-30 md:block text-white px-20">
+            <div class="bg-slate-900 w-full h-[60px] relative md:block text-white px-20">
                 <div class="w-full h-full relative">
                     <div class="w-full h-full flex justify-between items-center">
                         <div class="flex xl:space-x-7 space-x-3 items-center">
