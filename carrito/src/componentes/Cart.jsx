@@ -1,22 +1,22 @@
 import React, { useState } from "react";
+import { MdDelete } from "react-icons/md";
+import { IoAddCircleSharp } from "react-icons/io5";
+import { IoMdClose } from "react-icons/io";
 
-export default function Cart({isOpen, onClose, cartItems, vaciarItems, decrementoCant, incrementoCant}){
+export default function Cart({isOpen, onClose, cartItems, vacio, vaciarItems, eliminarItem, agregarItem}){
 
-  const subtotal = 0;
     return(
         <div class={`z-10 ${isOpen ? 'relative' : 'hidden'}`}>
           <div class="fixed inset-0 bg-gray-500/75 "></div>
-            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-              <div class="pointer-events-auto w-screen max-w-md">
-                <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+            <div class="fixed inset-y-0 right-0 flex max-w-full pl-10">
+              <div class="w-screen max-w-md">
+                <div class="flex h-full flex-col bg-white shadow-xl">
                   <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                     <div class="flex items-start justify-between">
                       <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Carrito de compras</h2>
                       <div class="ml-3 flex h-7 items-center">
                         <button onClick={onClose} type="button" class="cursor-pointer relative -m-2 p-2 text-gray-400 hover:text-gray-500">                          
-                          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                          </svg>
+                          <IoMdClose />
                         </button>
                       </div>
                     </div>
@@ -44,7 +44,9 @@ export default function Cart({isOpen, onClose, cartItems, vaciarItems, decrement
                                         <p class="text-gray-500">Unidad: {item.cantidad}</p>
 
                                         <div class="flex">
-                                          <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                                          <button type="button" onClick={() => agregarItem(item)} class="cursor-pointer font-medium text-2xl text-green-500 hover:text-green-900"><IoAddCircleSharp /></button>
+                                          <button type="button" onClick={() => eliminarItem(item)} class="cursor-pointer font-medium text-2xl text-red-500 hover:text-red-900"><MdDelete /></button>
+                                          
                                         </div>
                                       </div>
                                     </div>
@@ -56,9 +58,10 @@ export default function Cart({isOpen, onClose, cartItems, vaciarItems, decrement
                       </div>
                     </div>
                   </div>
-                  <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
-                    <div class="mt-6">
-                      <a href="#" class="flex items-center justify-center rounded-md border border-transparent bg-slate-900 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-slate-500">Comprar</a>
+                  <div class="border-t border-gray-400 px-4 py-6 sm:px-6">
+                    <div class={`mt-6 w-full justify-center space-x-6 ${vacio ? 'hidden' : 'flex'}`}>
+                      <button onClick={() => vaciarItems(cartItems)} class="flex items-center cursor-pointer rounded-md border border-transparent bg-red-900 px-8 py-3 text-base font-medium text-white  hover:bg-red-500">Vaciar</button>
+                      <button class="flex items-center cursor-pointer rounded-md border border-transparent bg-slate-900 px-8 py-3 text-base font-medium text-white hover:bg-slate-500">Comprar</button>
                     </div>
                   </div>
                 </div>

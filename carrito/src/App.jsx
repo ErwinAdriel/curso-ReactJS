@@ -13,6 +13,7 @@ function App() {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
   const [carga, setCarga] = useState(true);
+  const [vacio, setVacio] = useState(true);
   const [error, setError] = useState(false);
   const [stock, setStock] = useState([]);
 
@@ -43,7 +44,7 @@ function App() {
       setCart(cart.map((item) => {
         if(item.id === product.id){
           if(item.cantidad < product.stock){
-            return {...item, cantidad: item.cantidad+1}  
+            return {...item, cantidad: item.cantidad+1}
           }
             return item
         }else{
@@ -52,12 +53,13 @@ function App() {
       }))
     }else{
       setCart([...cart, {...product, cantidad:1}]);
+      setVacio(false);
     }
     //setCantidad(cantidad + 1);
     console.log(cart);
   }
 
-  function decrementoCant(product){
+  function eliminarCant(product){
     setCart(prevCart => {
       return(
         prevCart.map((item) => {
@@ -67,6 +69,9 @@ function App() {
                 {...item, cantidad: item.cantidad-1}
               )
             }else{
+              if(prevCart.length < 2){
+                setVacio(true);
+              }
               return null
             }
           }else{
@@ -77,7 +82,7 @@ function App() {
     })
   }
 
-  function incrementoCant(product){
+  function agregarCant(product){
     setCart(afterCart => {
       return(
         afterCart.map((item) => {
@@ -100,16 +105,17 @@ function App() {
   }
 
   function vaciarCart(){
-    setCart([])
+    setCart([]);
+    setVacio(true);
     console.log("Carrito vacio");
   }
 
   return (
     <>  
-      <Header cartItems={cart}/>
+      <Header cartItems={cart} vaciarItems={vaciarCart} eliminarItem={eliminarCant} vacio={vacio} agregarItem={agregarCant} />
       <Routes>
         <Route path='*' element={<Error />} />
-        <Route path='/' element={<Home  products={products} cargando={carga} cart={cart} handleAddToCart={handleAddToCart} decrementoCant={decrementoCant} incrementoCant={incrementoCant} vaciarCart={vaciarCart} />} />
+        <Route path='/' element={<Home  products={products} cargando={carga} cart={cart} handleAddToCart={handleAddToCart} />} />
         <Route path='/productos' element={<GaleriadeProductos products={products} cargando={carga} />} />
         <Route path='/nosotros' element={<Nosotros />} />
         <Route path='/contacto' element={<Contacto />} />

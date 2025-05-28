@@ -1,16 +1,13 @@
 import { FaRegUser } from "react-icons/fa";
 import { MdFavoriteBorder } from "react-icons/md";
 import { IoCartOutline, IoClose } from "react-icons/io5";
-import { CiMenuBurger } from "react-icons/ci";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
 
-export default function Nav({cartItems}){
+export default function Nav({cartItems, vacio, vaciarItems, eliminarItem, agregarItem}){
 
     const [isCartOpen, setCartOpen] = useState(false);
-
-    const [openMenu, setOpenMenu] = useState(false);
 
     const Menu = [
                     {name: "Inicio", link: "/"},
@@ -39,14 +36,13 @@ export default function Nav({cartItems}){
                                 <div class="md:flex text-3xl hidden">
                                     <span><MdFavoriteBorder /></span>
                                 </div>
-                                <div class="group relative text-3xl">
+                                <div class="flex text-3xl">
                                     <button class="cursor-pointer" type="button" onClick={() => setCartOpen(!isCartOpen)}>
                                         <span><IoCartOutline /></span>
-                                        <span class="w-[18px] h-[18px] rounded-full absolute -top-2.5 -right-2.5 flex justify-center items-center text-[9px] bg-blue-700 text-white">0</span>
                                     </button>
-                                    <Cart cartItems={cartItems} isOpen={isCartOpen} onClose={()=>setCartOpen(false)}/>
+                                    <Cart cartItems={cartItems} vacio={vacio} vaciarItems={vaciarItems} eliminarItem={eliminarItem} agregarItem={agregarItem} isOpen={isCartOpen} onClose={()=>setCartOpen(false)}/>
                                 </div>
-                                <div class="sm:flex text-2xl">
+                                <div class="flex text-2xl">
                                     <span><FaRegUser /></span>
                                 </div>
                             </div>
