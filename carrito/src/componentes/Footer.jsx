@@ -13,7 +13,7 @@ export default function Footer(){
                 <div class="lg:flex justify-between mb-[50px]">
                     <div class="lg:w-[424px] ml-0 w-full mb-10 lg:mb-0">
                         <h1 class="text-[18px] font-500 mb-5 font-bold">ATENCIÓN AL CLIENTE</h1>
-                        <p class="text-[14px] w-[247px] leading-[28px]">0810-555-8892 consultas@tinoshop.com.ar</p>
+                        <p class="text-[14px] w-[247px] leading-[28px]">0810-555-8892 consultas@avcomputing.com.ar</p>
                         <p class="text-[14px] w-[247px] leading-[28px] mt-4">WhatsApp +54 11 2165-6458 L a V de 8 a 18hs.</p>
                     </div>
                     <div class="flex-1 lg:flex">

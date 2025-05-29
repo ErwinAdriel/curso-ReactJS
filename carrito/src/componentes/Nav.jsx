@@ -37,8 +37,9 @@ export default function Nav({cartItems, vacio, vaciarItems, eliminarItem, agrega
                                     <span><MdFavoriteBorder /></span>
                                 </div>
                                 <div class="flex text-3xl">
-                                    <button class="cursor-pointer" type="button" onClick={() => setCartOpen(!isCartOpen)}>
+                                    <button class="relative cursor-pointer" type="button" onClick={() => setCartOpen(!isCartOpen)}>
                                         <span><IoCartOutline /></span>
+                                        <span class="w-[18px] h-[18px] rounded-full absolute -top-2 -right-2 flex justify-center items-center text-[9px] bg-blue-700 text-white">0</span>
                                     </button>
                                     <Cart cartItems={cartItems} vacio={vacio} vaciarItems={vaciarItems} eliminarItem={eliminarItem} agregarItem={agregarItem} isOpen={isCartOpen} onClose={()=>setCartOpen(false)}/>
                                 </div>

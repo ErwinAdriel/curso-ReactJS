@@ -37,16 +37,14 @@ export default function Cart({isOpen, onClose, cartItems, vacio, vaciarItems, el
                                           <h3>
                                             <a href="#">{item.name}</a>
                                           </h3>
-                                          <p class="ml-4">${item.price * 0.75}</p>
+                                          <p class="ml-4">$ {item.price}</p>
                                         </div>
                                       </div>
                                       <div class="flex flex-1 items-end justify-between text-sm">
                                         <p class="text-gray-500">Unidad: {item.cantidad}</p>
-
                                         <div class="flex">
                                           <button type="button" onClick={() => agregarItem(item)} class="cursor-pointer font-medium text-2xl text-green-500 hover:text-green-900"><IoAddCircleSharp /></button>
-                                          <button type="button" onClick={() => eliminarItem(item)} class="cursor-pointer font-medium text-2xl text-red-500 hover:text-red-900"><MdDelete /></button>
-                                          
+                                          <button type="button" onClick={() => eliminarItem(item)} class="cursor-pointer font-medium text-2xl text-red-500 hover:text-red-900"><MdDelete /></button>    
                                         </div>
                                       </div>
                                     </div>
@@ -59,6 +57,10 @@ export default function Cart({isOpen, onClose, cartItems, vacio, vaciarItems, el
                     </div>
                   </div>
                   <div class="border-t border-gray-400 px-4 py-6 sm:px-6">
+                    <div className={`${vacio ? 'hidden' : 'flex'} justify-between text-base font-medium text-gray-900`}>
+                      <p>Total a pagar</p>
+                      <p>$ 262.00</p>
+                    </div>
                     <div class={`mt-6 w-full justify-center space-x-6 ${vacio ? 'hidden' : 'flex'}`}>
                       <button onClick={() => vaciarItems(cartItems)} class="flex items-center cursor-pointer rounded-md border border-transparent bg-red-900 px-8 py-3 text-base font-medium text-white  hover:bg-red-500">Vaciar</button>
                       <button class="flex items-center cursor-pointer rounded-md border border-transparent bg-slate-900 px-8 py-3 text-base font-medium text-white hover:bg-slate-500">Comprar</button>

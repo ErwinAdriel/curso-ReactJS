@@ -15,7 +15,7 @@ function App() {
   const [carga, setCarga] = useState(true);
   const [vacio, setVacio] = useState(true);
   const [error, setError] = useState(false);
-  const [stock, setStock] = useState([]);
+  const [precio, setPrecio] = useState();
 
   useEffect(() => {
     fetch('/data/data.json')
@@ -23,7 +23,7 @@ function App() {
         .then((datos) => {
             setTimeout(() => {
                 setProducts(datos)
-                setCarga(false)    
+                setCarga(false)
             }, 2000)
         })
         .catch((error) => {
@@ -36,7 +36,9 @@ function App() {
   }, []);
 
 
-  function handleAddToCart(product){
+  function handleAddToCart(product){ 
+
+    setPrecio(product.price)
     const productExist = cart.find(item => item.id === product.id);
 
     if(productExist){
@@ -44,6 +46,7 @@ function App() {
       setCart(cart.map((item) => {
         if(item.id === product.id){
           if(item.cantidad < product.stock){
+            
             return {...item, cantidad: item.cantidad+1}
           }
             return item
@@ -52,8 +55,8 @@ function App() {
         }
       }))
     }else{
-      setCart([...cart, {...product, cantidad:1}]);
-      setVacio(false);
+      setCart([...cart, {...product, cantidad:1}])
+      setVacio(false)
     }
     //setCantidad(cantidad + 1);
     console.log(cart);
@@ -89,7 +92,7 @@ function App() {
           if(item.id === product.id){
             if(item.cantidad < product.stock){
               return(
-                {...item, cantidad: item.cantidad+1}
+                {...item, cantidad: item.cantidad+1, price: precio + item.price}
               )
             }else{
               return (
