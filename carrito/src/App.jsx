@@ -10,6 +10,7 @@ import Contacto from "./layout/Contacto";
 import GaleriadeProductos from "./layout/GaleriadeProductos";
 import Admin from "./layout/Admin";
 import Login from "./layout/Login";
+import RutaProtegida from "./auth/RutasProtegidas";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -146,11 +147,24 @@ function App() {
         />
         <Route
           path="/productos/:id"
-          element={<DetallesProductos products={products} addToCart={handleAddToCart} />}
+          element={
+            <DetallesProductos
+              products={products}
+              addToCart={handleAddToCart}
+            />
+          }
         />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/contacto" element={<Contacto />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route
+          path="/admin"
+          element={
+            <RutaProtegida isAuthenticated={isAuthenticated}>
+              {" "}
+              <Admin />{" "}
+            </RutaProtegida>
+          }
+        />
         <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
