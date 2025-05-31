@@ -10,10 +10,10 @@ export default function Nav({cartItems, vacio, vaciarItems, eliminarItem, agrega
     const [isCartOpen, setCartOpen] = useState(false);
 
     const Menu = [
-                    {name: "Inicio", link: "/"},
-                    {name: "Galeria", link: "/productos"},
-                    {name: "Nosotros", link: "/nosotros"},
-                    {name: "Contacto", link: "/contacto"}
+                    {id: 1, name: "Inicio", link: "/"},
+                    {id: 2, name: "Galeria", link: "/productos"},
+                    {id: 3, name: "Nosotros", link: "/nosotros"},
+                    {id: 4, name: "Contacto", link: "/contacto"}
                 ];
     return (
         <div>
@@ -41,7 +41,7 @@ export default function Nav({cartItems, vacio, vaciarItems, eliminarItem, agrega
                                         <span><IoCartOutline /></span>
                                         <span class="w-[18px] h-[18px] rounded-full absolute -top-2 -right-2 flex justify-center items-center text-[9px] bg-blue-700 text-white">0</span>
                                     </button>
-                                    <Cart cartItems={cartItems} vacio={vacio} vaciarItems={vaciarItems} eliminarItem={eliminarItem} agregarItem={agregarItem} isOpen={isCartOpen} onClose={()=>setCartOpen(false)}/>
+                                    <Cart cartItems={cartItems} vacio={vacio} vaciarItems={vaciarItems} eliminarItem={eliminarItem} agregarItem={agregarItem} isOpen={isCartOpen} onClose={()=>setCartOpen(false)} />
                                 </div>
                                 <div class="flex text-2xl">
                                     <span><FaRegUser /></span>
@@ -59,7 +59,7 @@ export default function Nav({cartItems, vacio, vaciarItems, eliminarItem, agrega
                                 <ul class="flex">
                                     {
                                         Menu.map((menu)=>(
-                                            <li key={menu} class="hover:bg-white hover:text-black"><Link to={menu.link}><div class="px-4 py-[18px] cursor-pointer">{menu.name}</div></Link></li>       
+                                            <li key={menu.id} class="hover:bg-white hover:text-black"><Link to={menu.link}><div class="px-4 py-[18px] cursor-pointer">{menu.name}</div></Link></li>       
                                         ))
                                     }
                                 </ul>

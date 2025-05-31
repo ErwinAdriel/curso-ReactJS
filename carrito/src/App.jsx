@@ -35,13 +35,17 @@ function App() {
         });
   }, []);
 
+  //console.log(cart);
 
   function handleAddToCart(product){ 
-
+    
     setPrecio(product.price)
     const productExist = cart.find(item => item.id === product.id);
 
     if(productExist){
+      /*if(productExist.id == product.id){
+        setCart([...cart, {...product}])
+      }*/
       //Si el producto esta en el carrito
       setCart(cart.map((item) => {
         if(item.id === product.id){
@@ -49,8 +53,10 @@ function App() {
             
             return {...item, cantidad: item.cantidad+1}
           }
+          
             return item
         }else{
+          
           return item
         }
       }))
@@ -58,8 +64,6 @@ function App() {
       setCart([...cart, {...product, cantidad:1}])
       setVacio(false)
     }
-    //setCantidad(cantidad + 1);
-    console.log(cart);
   }
 
   function eliminarCant(product){
@@ -121,7 +125,7 @@ function App() {
         <Route path='/' element={<Home  products={products} cargando={carga} cart={cart} handleAddToCart={handleAddToCart} />} />
         <Route path='/productos' element={<GaleriadeProductos products={products} cargando={carga} />} />
         <Route path='/nosotros' element={<Nosotros />} />
-        <Route path='/contacto' element={<Contacto />} />
+        <Route path='/contacto' element={<Contacto />} /> 
       </Routes>
       <Footer /> 
     </>

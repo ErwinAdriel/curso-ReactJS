@@ -2,7 +2,7 @@ import React from "react";
 import ProductList from "../componentes/ProductList";
 import loading from "../img/loading.gif";
 
-export default function Home({products, cargando, handleAddToCart, decrementoCant, incrementoCant}){
+export default function Home({products, cargando, handleAddToCart}){
     
     return(
         <>
