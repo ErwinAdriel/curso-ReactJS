@@ -4,9 +4,11 @@ import Home from './layout/Home'
 import Footer from './componentes/Footer';
 import Header from './componentes/Header';
 import Error from './layout/Error404';
+import DetallesProductos from './componentes/DetallesProductos';
 import Nosotros from './layout/Nosotros';
 import Contacto from './layout/Contacto';
 import GaleriadeProductos from './layout/GaleriadeProductos';
+import Admin from './layout/Admin';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -124,8 +126,10 @@ function App() {
         <Route path='*' element={<Error />} />
         <Route path='/' element={<Home  products={products} cargando={carga} cart={cart} handleAddToCart={handleAddToCart} />} />
         <Route path='/productos' element={<GaleriadeProductos products={products} cargando={carga} />} />
+        <Route path='/productos/:id' element={< DetallesProductos products={products}/>}/>
         <Route path='/nosotros' element={<Nosotros />} />
         <Route path='/contacto' element={<Contacto />} /> 
+        <Route path='/admin' element={<Admin />} />
       </Routes>
       <Footer /> 
     </>
