@@ -9,6 +9,7 @@ import Nosotros from "./layout/Nosotros";
 import Contacto from "./layout/Contacto";
 import GaleriadeProductos from "./layout/GaleriadeProductos";
 import Admin from "./layout/Admin";
+import Login from "./layout/Login";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   const [vacio, setVacio] = useState(true);
   const [error, setError] = useState(false);
   const [precio, setPrecio] = useState();
+  const [isAuthenticated, setIsAuth] = useState(false);
 
   useEffect(() => {
     fetch("/data/data.json")
@@ -149,6 +151,7 @@ function App() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </>

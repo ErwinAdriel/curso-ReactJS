@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
+import Error from "../layout/Error404";
 
 export default function DetallesProductos({ products, addToCart }) {
   const { id } = useParams();
@@ -61,7 +62,7 @@ export default function DetallesProductos({ products, addToCart }) {
           </div>
         </div>
       ) : (
-        <p>No existe</p>
+        <Error />
       )}
     </>
   );
