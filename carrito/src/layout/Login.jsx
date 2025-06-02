@@ -1,6 +1,49 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { CartContext } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const { setIsAuth } = useContext(CartContext);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState({});
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let validationErrors = {};
+
+    if (!email) validationErrors.email = "Email es requerido";
+    if (!password) validationErrors.password = "La contraseña es requerida";
+
+    if (Object.keys(validationErrors).length > 0) {
+      setError(validationErrors);
+    }
+    return;
+  };
+
+  try {
+    
+    const res = await fetch('data/users.json');
+    const users = await res.json();
+
+    const foundUser = users.find((user) => user.email === email && user.password === password);
+    if(!foundUser){
+      setError({email: 'credenciales inválidas'});
+    }else{
+      if(foundUser.role === 'admin'){
+        setIsAuth(true);
+        navigate('/admin');
+      }else{
+        navigate('/');
+      }
+    }
+
+  } catch (err) {
+    setError({email: 'Algo salio mal. Por favor, intentelo mas tarde'});
+  }
+
   return (
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <div class="w-full bg-white border-gray-200 border md:mt-0 sm:max-w-md xl:p-0 text-black">
@@ -51,10 +94,7 @@ export default function Login() {
                   />
                 </div>
                 <div class="ml-3 text-sm">
-                  <label
-                    for="remember"
-                    class="text-gray-400"
-                  >
+                  <label for="remember" class="text-gray-400">
                     Recordar
                   </label>
                 </div>
