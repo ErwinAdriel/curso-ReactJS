@@ -33,11 +33,12 @@ const Login = () => {
       if (!foundUser) {
         setError({ email: "credenciales inválidas" });
       } else {
-        if (foundUser.role === "admin") {
+        console.log(foundUser.role);
+        if (foundUser.role === 'admin') {
           setIsAuth(true);
-          navigate("/admin");
+          navigate('/admin');
         } else {
-          navigate("/");
+          navigate('/');
         }
       }
     } catch (err) {
@@ -58,6 +59,7 @@ const Login = () => {
           >
             <div>
               <label
+                htmlFor="formEmail"
                 for="email"
                 class="block mb-2 text-sm font-medium text-gray-800"
               >
