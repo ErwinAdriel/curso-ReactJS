@@ -72,8 +72,7 @@ function App() {
             path="/admin"
             element={
               <RutaProtegida isAuthenticated={isAuthenticated}>
-                {" "}
-                <Admin />{" "}
+                <Admin />
               </RutaProtegida>
             }
           />

@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+const Login = () => {
   const { setIsAuth } = useContext(CartContext);
 
   const [email, setEmail] = useState("");
@@ -19,30 +19,31 @@ export default function Login() {
 
     if (Object.keys(validationErrors).length > 0) {
       setError(validationErrors);
+      return;
     }
-    return;
-  };
 
-  try {
-    
-    const res = await fetch('data/users.json');
-    const users = await res.json();
+    try {
+      const res = await fetch("data/users.json");
+      const users = await res.json();
 
-    const foundUser = users.find((user) => user.email === email && user.password === password);
-    if(!foundUser){
-      setError({email: 'credenciales inválidas'});
-    }else{
-      if(foundUser.role === 'admin'){
-        setIsAuth(true);
-        navigate('/admin');
-      }else{
-        navigate('/');
+      const foundUser = users.find(
+        (user) => user.email === email && user.password === password
+      );
+
+      if (!foundUser) {
+        setError({ email: "credenciales inválidas" });
+      } else {
+        if (foundUser.role === "admin") {
+          setIsAuth(true);
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
       }
+    } catch (err) {
+      setError({ email: "Algo salio mal. Por favor, intentelo mas tarde" });
     }
-
-  } catch (err) {
-    setError({email: 'Algo salio mal. Por favor, intentelo mas tarde'});
-  }
+  };
 
   return (
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -51,7 +52,10 @@ export default function Login() {
           <h1 class="text-xl text-gray-900 font-bold leading-tight md:text-2xl">
             Inicia sesión con tu cuenta
           </h1>
-          <form class="space-y-4 md:space-y-6" action="POST">
+          <form
+            onSubmit={handleSubmit}
+            class="space-y-4 md:space-y-6"
+          >
             <div>
               <label
                 for="email"
@@ -63,6 +67,8 @@ export default function Login() {
                 type="email"
                 name="email"
                 id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 class="placeholder-gray-400 bg-gray-50 border border-gray-300 block w-full p-3"
                 placeholder="name@company.com"
                 required=""
@@ -79,6 +85,8 @@ export default function Login() {
                 type="password"
                 name="password"
                 id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 class="placeholder-gray-400 bg-gray-50 border border-gray-300 block w-full p-3"
                 required=""
@@ -127,3 +135,5 @@ export default function Login() {
     </div>
   );
 }
+
+export default Login;
